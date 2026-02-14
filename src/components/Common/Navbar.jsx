@@ -4,8 +4,8 @@ import { BsChevronDown } from "react-icons/bs"
 import { useSelector } from "react-redux"
 import { Link, matchPath, useLocation } from "react-router-dom"
 
-import logo from "../../assets/Logo/Logo-Full-Light.png"
 import { NavbarLinks } from "../../data/navbar-links"
+import LearnstackLogo from "../../assets/Logo/learnstack-logo.png"
 import { apiConnector } from "../../services/apiConnector"
 import { categories } from "../../services/apis"
 import { ACCOUNT_TYPE } from "../../utils/constants"
@@ -44,7 +44,8 @@ function Navbar() {
       setLoading(true)
       try {
         const res = await apiConnector("GET", categories.CATEGORIES_API)
-        setSubLinks(res.data.data)
+        const apiSubLinks = Array.isArray(res?.data?.data) ? res.data.data : []
+        setSubLinks(apiSubLinks)
       } catch (error) {
         console.log("Could not fetch Categories.", error)
       }
@@ -66,8 +67,14 @@ function Navbar() {
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
-        <Link to="/">
-          <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
+        <Link to="/" className="flex items-center pt-2">
+          <img
+            src={LearnstackLogo}
+            alt="Learnstack Logo"
+            width={240}
+            height={48}
+            className="object-contain"
+          />
         </Link>
         {/* Navigation links */}
         <nav className="hidden md:block">
@@ -89,11 +96,13 @@ function Navbar() {
                         <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5"></div>
                         {loading ? (
                           <p className="text-center">Loading...</p>
-                        ) : subLinks.length ? (
+                        ) : Array.isArray(subLinks) && subLinks.length ? (
                           <>
                             {subLinks
                               ?.filter(
-                                (subLink) => subLink?.courses?.length > 0
+                                (subLink) =>
+                                  Array.isArray(subLink?.courses) &&
+                                  subLink.courses.length > 0
                               )
                               ?.map((subLink, i) => (
                                 <Link
