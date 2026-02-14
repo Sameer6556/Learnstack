@@ -2,7 +2,7 @@ import React from "react";
 import { FooterLink2 } from "../../data/footer-links";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaGoogle, FaTwitter, FaYoutube } from "react-icons/fa";
-import LearnstackLogo from "../../assets/Logo/learnstack-logo.png";
+import LearnstackLogo from "../../assets/Logo/Logo-Full-Light.svg";
 
 const BottomFooter = ["Privacy Policy", "Cookie Policy", "Terms"];
 const Resources = [

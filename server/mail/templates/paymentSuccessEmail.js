@@ -67,7 +67,7 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
     
     <body>
         <div class="container">
-            <a href="https://learnstack-edtech-project.vercel.app"><img class="logo" src="https://i.ibb.co/7Xyj3PC/logo.png"
+            <a href="https://learnstack-edtech-project.vercel.app"><img class="logo" src="https://learnstack-edtech-project.vercel.app/logo.svg"
                     alt="Learnstack Logo"></a>
             <div class="message">Course Payment Confirmation</div>
             <div class="body">

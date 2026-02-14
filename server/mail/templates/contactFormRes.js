@@ -75,7 +75,7 @@ exports.contactUsEmail = (
   <body>
       <div class="container">
           <a href="https://learnstack-edtech-project.vercel.app"><img class="logo"
-                  src="https://i.ibb.co/7Xyj3PC/logo.png" alt="Learnstack Logo"></a>
+                  src="https://learnstack-edtech-project.vercel.app/logo.svg" alt="Learnstack Logo"></a>
           <div class="message">Contact Form Confirmation</div>
           <div class="body">
               <p>Dear ${firstname} ${lastname},</p>

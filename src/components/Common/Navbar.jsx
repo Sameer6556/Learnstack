@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 import { Link, matchPath, useLocation } from "react-router-dom"
 
 import { NavbarLinks } from "../../data/navbar-links"
-import LearnstackLogo from "../../assets/Logo/learnstack-logo.png"
+import LearnstackLogo from "../../assets/Logo/Logo-Full-Light.svg"
 import { apiConnector } from "../../services/apiConnector"
 import { categories } from "../../services/apis"
 import { ACCOUNT_TYPE } from "../../utils/constants"
