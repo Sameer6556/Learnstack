@@ -1,5 +1,5 @@
 exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
-  return `<!DOCTYPE html>
+    return `<!DOCTYPE html>
     <html>
     
     <head>
@@ -67,7 +67,7 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
     
     <body>
         <div class="container">
-            <a href="https://learnstack-edtech-project.vercel.app"><img class="logo" src="https://learnstack-edtech-project.vercel.app/logo.svg"
+            <a href="https://learnstack-e171.vercel.app"><img class="logo" src="https://i.ibb.co/qMdLgzDn/logo.png"
                     alt="Learnstack Logo"></a>
             <div class="message">Course Payment Confirmation</div>
             <div class="body">

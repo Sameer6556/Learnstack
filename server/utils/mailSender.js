@@ -8,11 +8,12 @@ const mailSender = async (email, title, body) => {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
-      secure: false,
+      secure: true,
+      port: 465,
     })
 
     let info = await transporter.sendMail({
-      from: `"Learnstack | CodeHelp" <${process.env.MAIL_USER}>`, // sender address
+      from: `"Learnstack" <${process.env.MAIL_USER}>`, // sender address
       to: `${email}`, // list of receivers
       subject: `${title}`, // Subject line
       html: `${body}`, // html body
@@ -20,8 +21,8 @@ const mailSender = async (email, title, body) => {
     console.log(info.response)
     return info
   } catch (error) {
-    console.log(error.message)
-    return error.message
+    console.log("MAIL SENDING ERROR:", error.message)
+    throw error
   }
 }
 

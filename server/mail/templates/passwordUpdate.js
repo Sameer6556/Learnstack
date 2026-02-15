@@ -1,5 +1,5 @@
 exports.passwordUpdated = (email, name) => {
-	return `<!DOCTYPE html>
+    return `<!DOCTYPE html>
     <html>
     
     <head>
@@ -55,8 +55,8 @@ exports.passwordUpdated = (email, name) => {
     
     <body>
         <div class="container">
-            <a href="https://learnstack-edtech-project.vercel.app"><img class="logo"
-                    src="https://learnstack-edtech-project.vercel.app/logo.svg" alt="Learnstack Logo"></a>
+            <a href="https://learnstack-e171.vercel.app"><img class="logo"
+                    src="https://i.ibb.co/qMdLgzDn/logo.png" alt="Learnstack Logo"></a>
             <div class="message">Password Update Confirmation</div>
             <div class="body">
                 <p>Hey ${name},</p>

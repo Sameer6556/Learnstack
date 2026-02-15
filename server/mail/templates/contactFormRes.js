@@ -1,12 +1,12 @@
 exports.contactUsEmail = (
-  email,
-  firstname,
-  lastname,
-  message,
-  phoneNo,
-  countrycode
+    email,
+    firstname,
+    lastname,
+    message,
+    phoneNo,
+    countrycode
 ) => {
-  return `<!DOCTYPE html>
+    return `<!DOCTYPE html>
   <html>
   
   <head>
@@ -74,8 +74,8 @@ exports.contactUsEmail = (
   
   <body>
       <div class="container">
-          <a href="https://learnstack-edtech-project.vercel.app"><img class="logo"
-                  src="https://learnstack-edtech-project.vercel.app/logo.svg" alt="Learnstack Logo"></a>
+          <a href="https://learnstack-e171.vercel.app"><img class="logo"
+                  src="https://i.ibb.co/qMdLgzDn/logo.png" alt="Learnstack Logo"></a>
           <div class="message">Contact Form Confirmation</div>
           <div class="body">
               <p>Dear ${firstname} ${lastname},</p>
