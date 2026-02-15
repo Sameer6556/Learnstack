@@ -3,11 +3,14 @@ const nodemailer = require("nodemailer")
 const mailSender = async (email, title, body) => {
   try {
     let transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: process.env.MAIL_HOST,
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
+      secure: true,
+      port: 465,
+      family: 4, // Force IPv4 to avoid Render IPv6 timeouts
     })
 
     let info = await transporter.sendMail({
