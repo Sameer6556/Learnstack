@@ -2,25 +2,22 @@ const nodemailer = require("nodemailer")
 
 const mailSender = async (email, title, body) => {
   try {
-    // Check for missing environment variables
-    if (!process.env.MAIL_HOST && !process.env.MAIL_USER) {
-      console.log("WARNING: MAIL_HOST or MAIL_USER environment variables are missing!")
-    }
-
-    console.log("Mail Config:", {
-      host: process.env.MAIL_HOST || "smtp.gmail.com",
-      user: process.env.MAIL_USER,
-      port: 587
-    })
+    console.log("--------------------------------------------------")
+    console.log("MAIL SENDER STARTED - IPv4 FORCED")
+    console.log("Using Host:", process.env.MAIL_HOST || "smtp.gmail.com")
+    console.log("--------------------------------------------------")
 
     let transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST || "smtp.gmail.com", // Fallback to Gmail
+      host: process.env.MAIL_HOST || "smtp.gmail.com",
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
-      secure: false, // true for 465, false for other ports
+      secure: false, // 587
       port: 587,
+      family: 4, // Force IPv4
+      logger: true, // Log to console
+      debug: true, // Include debug info
     })
 
     let info = await transporter.sendMail({
