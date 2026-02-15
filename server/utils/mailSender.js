@@ -13,8 +13,8 @@ const mailSender = async (email, title, body) => {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
-      secure: false, // 587
-      port: 587,
+      secure: true, // 465 requires secure: true
+      port: 465,
       family: 4, // Force IPv4
       logger: true, // Log to console
       debug: true, // Include debug info
