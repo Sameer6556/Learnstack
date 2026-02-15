@@ -2,22 +2,13 @@ const nodemailer = require("nodemailer")
 
 const mailSender = async (email, title, body) => {
   try {
-    console.log("--------------------------------------------------")
-    console.log("MAIL SENDER STARTED - IPv4 FORCED")
-    console.log("Using Host:", process.env.MAIL_HOST || "smtp.gmail.com")
-    console.log("--------------------------------------------------")
-
     let transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST || "smtp.gmail.com",
+      host: process.env.MAIL_HOST,
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
-      secure: true, // 465 requires secure: true
-      port: 465,
-      family: 4, // Force IPv4
-      logger: true, // Log to console
-      debug: true, // Include debug info
+      secure: false,
     })
 
     let info = await transporter.sendMail({
@@ -29,8 +20,8 @@ const mailSender = async (email, title, body) => {
     console.log(info.response)
     return info
   } catch (error) {
-    console.log("MAIL SENDING ERROR:", error.message)
-    throw error
+    console.log(error.message)
+    return error.message
   }
 }
 
