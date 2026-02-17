@@ -34,6 +34,9 @@ export default function Upload({
       ? { "image/*": [".jpeg", ".jpg", ".png"] }
       : { "video/*": [".mp4"] },
     onDrop,
+    noClick: false,
+    noKeyboard: false,
+    multiple: false,
   })
 
   const previewFile = (file) => {
@@ -61,9 +64,8 @@ export default function Upload({
         {label} {!viewData && <sup className="text-pink-200">*</sup>}
       </label>
       <div
-        className={`${
-          isDragActive ? "bg-richblack-600" : "bg-richblack-700"
-        } flex min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-richblack-500`}
+        className={`${isDragActive ? "bg-richblack-600" : "bg-richblack-700"
+          } flex min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-richblack-500`}
       >
         {previewSource ? (
           <div className="flex w-full flex-col p-6">
@@ -104,6 +106,13 @@ export default function Upload({
               <span className="font-semibold text-yellow-50">Browse</span> a
               file
             </p>
+            <button
+              type="button"
+              onClick={() => inputRef.current?.click()}
+              className="mt-4 rounded-md bg-yellow-50 px-4 py-2 font-semibold text-richblack-900 transition-all duration-200 hover:scale-95"
+            >
+              Select {!video ? "Image" : "Video"}
+            </button>
             <ul className="mt-10 flex list-disc justify-between space-x-12 text-center  text-xs text-richblack-200">
               <li>Aspect ratio 16:9</li>
               <li>Recommended size 1024x576</li>
